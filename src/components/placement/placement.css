@@ -1,0 +1,31 @@
+.placement {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.placement div {
+  flex: 1;
+  max-width: 150px;
+  min-width: 120px;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.placement__heading {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+  word-spacing: 0.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 50px;
+}
