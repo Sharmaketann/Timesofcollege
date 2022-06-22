@@ -22,6 +22,7 @@
   width: 100.56px;
   height: 30.02px;
   object-fit: contain;
+  transform: scale(4);
 }
 
 .navbar-links_container {
@@ -118,6 +119,9 @@
 }
 
 @media screen and (max-width: 550px) {
+  .navbar img {
+    transform: scale(4);
+  }
   .navbar {
     padding: 2rem;
   }

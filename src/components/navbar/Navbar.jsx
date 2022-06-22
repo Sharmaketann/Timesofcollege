@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
-
+import logo from '../../assets/logo.png'
 import './navbar.css'
 
 const Navbar = () => {
@@ -10,10 +10,7 @@ const Navbar = () => {
     <div className='navbar'>
       <div className='navbar-links'>
         <div className='navbar-links_logo'>
-          <img
-            src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/799px-Netflix_2015_logo.svg.png?20190206123158'
-            alt='logo'
-          />
+          <img src={logo} alt='logo' />
         </div>
         <div className='navbar-links_container'>
           <p>

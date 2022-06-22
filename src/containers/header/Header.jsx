@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser'
 import axios from 'axios'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
+import party from 'party-js'
 const Header = () => {
   const [quote, setQuote] = useState('')
   const [author, setAuthor] = useState('')
@@ -81,6 +81,15 @@ const Header = () => {
           console.log(error.text)
         }
       )
+    e.target.reset()
+  }
+
+  const confetti = (e) => {
+    e.preventDefault()
+
+    party.confetti(document.getElementById('send'), {
+      count: party.variation.range(20, 40),
+    })
   }
   return (
     <div className='header section__padding' id='home'>
@@ -97,7 +106,9 @@ const Header = () => {
             placeholder='Your Email Address'
             required
           />
-          <button type='submit'>Get Started</button>
+          <button id='send' type='submit' onClick={confetti}>
+            Get Started
+          </button>
         </form>
 
         <div className='header-content__people'>
