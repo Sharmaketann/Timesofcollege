@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import people from '../../assets/people.png'
 import ai from '../../assets/hero.png'
 import './header.css'
+import emailjs from '@emailjs/browser'
 import axios from 'axios'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -59,6 +60,28 @@ const Header = () => {
       duration: 2,
     })
   }, [])
+
+  const form = useRef()
+
+  const sendEmail = (e) => {
+    e.preventDefault()
+
+    emailjs
+      .sendForm(
+        'service_p79t9es',
+        'template_r0xrtha',
+        e.target,
+        'BtmRBNyTQyC4aqlWS'
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
+  }
   return (
     <div className='header section__padding' id='home'>
       <div className='header-content' ref={(el) => (heading = el)}>
@@ -67,10 +90,15 @@ const Header = () => {
         <p className='quote'></p>
         <p className='author'>~{author}</p>
 
-        <div className='header-content__input'>
-          <input type='email' placeholder='Your Email Address' />
-          <button type='button'>Get Started</button>
-        </div>
+        <form onSubmit={sendEmail} className='header-content__input' ref={form}>
+          <input
+            type='email'
+            name='email'
+            placeholder='Your Email Address'
+            required
+          />
+          <button type='submit'>Get Started</button>
+        </form>
 
         <div className='header-content__people'>
           <img src={people} alt='people' />

@@ -11,7 +11,7 @@ const Footer = () => (
     </div>
 
     <div className='footer-btn'>
-      <p>Get Quote for your complete course.</p>
+      <p id='#home'>Get Quote for your complete course.</p>
     </div>
 
     <div className='footer-links'>
