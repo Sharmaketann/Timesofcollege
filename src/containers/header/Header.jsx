@@ -6,8 +6,13 @@ import emailjs from '@emailjs/browser'
 import axios from 'axios'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import party from 'party-js'
+// import party from 'party-js'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer, toast } from 'react-toastify'
+
 const Header = () => {
+  // Quotable API function
+
   const [quote, setQuote] = useState('')
   const [author, setAuthor] = useState('')
 
@@ -35,6 +40,8 @@ const Header = () => {
   useEffect(() => {
     quoteAPI()
   }, [])
+
+  // GSAP animation for different sections
   gsap.registerPlugin(ScrollTrigger)
   let heading = useRef(null)
   let rightImage = useRef(null)
@@ -61,6 +68,29 @@ const Header = () => {
     })
   }, [])
 
+  // Confetti function
+
+  // const confetti = (e) => {
+  //   e.preventDefault()
+  //   party.confetti(document.getElementById('send'), {
+  //     count: party.variation.range(50, 100),
+  //   })
+  // }
+
+  // Toast for successful email sent using react-toastify
+  const toaster = (e) => {
+    toast.success('🦄 Email Sent!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+  }
+
+  // Form submit and send to mail function using emailjs
   const form = useRef()
 
   const sendEmail = (e) => {
@@ -76,6 +106,7 @@ const Header = () => {
       .then(
         (result) => {
           console.log(result.text)
+          toaster()
         },
         (error) => {
           console.log(error.text)
@@ -84,43 +115,54 @@ const Header = () => {
     e.target.reset()
   }
 
-  const confetti = (e) => {
-    e.preventDefault()
-
-    party.confetti(document.getElementById('send'), {
-      count: party.variation.range(20, 40),
-    })
-  }
   return (
-    <div className='header section__padding' id='home'>
-      <div className='header-content' ref={(el) => (heading = el)}>
-        <h1 className='gradient__text'>{quote}</h1>
+    <>
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <div className='header section__padding' id='home'>
+        <div className='header-content' ref={(el) => (heading = el)}>
+          <h1 className='gradient__text'>{quote}</h1>
 
-        <p className='quote'></p>
-        <p className='author'>~{author}</p>
+          <p className='quote'></p>
+          <p className='author'>~{author}</p>
 
-        <form onSubmit={sendEmail} className='header-content__input' ref={form}>
-          <input
-            type='email'
-            name='email'
-            placeholder='Your Email Address'
-            required
-          />
-          <button id='send' type='submit' onClick={confetti}>
-            Get Started
-          </button>
-        </form>
+          <form
+            id='form'
+            onSubmit={sendEmail}
+            className='header-content__input'
+            ref={form}
+          >
+            <input
+              type='email'
+              name='email'
+              placeholder='Your Email Address'
+              required
+            />
+            <button id='send' type='submit'>
+              Get Started
+            </button>
+          </form>
 
-        <div className='header-content__people'>
-          <img src={people} alt='people' />
-          <p>Thousands of seats open for all courses every year.</p>
+          <div className='header-content__people'>
+            <img src={people} alt='people' />
+            <p>Thousands of seats open for all courses every year.</p>
+          </div>
+        </div>
+
+        <div className='header-image'>
+          <img src={ai} alt='ai' ref={(el) => (rightImage = el)} />
         </div>
       </div>
-
-      <div className='header-image'>
-        <img src={ai} alt='ai' ref={(el) => (rightImage = el)} />
-      </div>
-    </div>
+    </>
   )
 }
 
