@@ -33,7 +33,7 @@
   cursor: pointer;
 }
 
-.footer-btn p {
+.footer-btn a {
   font-size: 18px;
   font-family: var(--font-family);
   line-height: 21px;

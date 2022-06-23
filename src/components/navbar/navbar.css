@@ -81,7 +81,7 @@
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-
+  z-index: 999;
   text-align: end;
   background: var(--color-footer);
   padding: 2rem;

@@ -8,7 +8,9 @@ const CTA = () => (
       <h3>Register Today & start exploring the endless possibilities.</h3>
     </div>
     <div className='cta-btn'>
-      <button type='button'>Get Started</button>
+      <button type='button'>
+        <a href='#home'>Get Started</a>
+      </button>
     </div>
   </div>
 )

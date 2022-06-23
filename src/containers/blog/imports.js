@@ -1,13 +1,7 @@
-import blog01 from '../../assets/blog01.png';
-import blog02 from '../../assets/blog02.png';
-import blog03 from '../../assets/blog03.png';
-import blog04 from '../../assets/blog04.png';
-import blog05 from '../../assets/blog05.png';
+import blog1 from '../../assets/blog1.jpg'
+import blog2 from '../../assets/blog2.jpg'
+import blog3 from '../../assets/blog3.jpg'
+import possibility from '../../assets/possibility.png'
+import hero2 from '../../assets/hero2.svg'
 
-export {
-  blog01,
-  blog02,
-  blog03,
-  blog04,
-  blog05,
-};
+export { blog1, blog2, blog3, possibility, hero2 }

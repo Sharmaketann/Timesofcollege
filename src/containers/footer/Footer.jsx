@@ -11,7 +11,7 @@ const Footer = () => (
     </div>
 
     <div className='footer-btn'>
-      <p id='#home'>Get Quote for your complete course.</p>
+      <a href='#home'>Get Quote for your complete course.</a>
     </div>
 
     <div className='footer-links'>
@@ -36,8 +36,8 @@ const Footer = () => (
       </div>
       <div className='footer-links_div'>
         <h4>Get in touch</h4>
-        <p>Rose Walt Park, 56th Street</p>
-        <p>085-132567</p>
+        <p>Antillia, Bandra East</p>
+        <p>020-9211420786</p>
         <p>info@timesofcollege.com</p>
       </div>
     </div>
